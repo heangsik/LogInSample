@@ -26,6 +26,7 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@ModelAttribute @Valid LoginForm loginForm, BindingResult bindingResult, @RequestParam(defaultValue = "/") String redirctUrl) {
         if(bindingResult.hasErrors()){
+
             return "login/loginForm";
         }
         Member member = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
