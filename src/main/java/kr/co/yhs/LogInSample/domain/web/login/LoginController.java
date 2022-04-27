@@ -18,6 +18,7 @@ import javax.validation.Valid;
 public class LoginController {
     private final LoginService loginService;
 
+
     @GetMapping("/login")
     public String LoginForm(@ModelAttribute LoginForm loginForm) {
         log.info("get login");
@@ -28,6 +29,8 @@ public class LoginController {
         if(bindingResult.hasErrors()){
 
             return "login/loginForm";
+
+
         }
         Member member = loginService.login(loginForm.getLoginId(), loginForm.getPassword());
 
